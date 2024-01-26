@@ -9,7 +9,7 @@ const StyledStatistics = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 1.5rem;
+  gap: 2rem;
 `;
 
 function Statistics() {

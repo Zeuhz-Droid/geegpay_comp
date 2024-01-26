@@ -6,8 +6,9 @@ const StyledStatistic = styled.div`
   display: grid;
   gap: 0.5rem;
   padding: 1rem;
+  font-weight: 600;
   background-color: var(--color-white);
-  border-radius: var(--border-radius-2xl);
+  border-radius: var(--border-radius-lg);
 
   .images {
     display: flex;
@@ -28,7 +29,6 @@ const StyledStatistic = styled.div`
 
   .amount {
     font-size: 2.3rem;
-    font-weight: 600;
     color: var(--color-grey-900);
   }
 
@@ -36,6 +36,10 @@ const StyledStatistic = styled.div`
     font-size: 1.2rem;
     display: flex;
     align-items: center;
+
+    &:last-child {
+      color: var(--color-grey-400);
+    }
   }
 `;
 
