@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { platforms } from "../data/platforms";
 import Platform from "./Platform";
+import { useState } from "react";
 
 const StyledPlatforms = styled.div`
   grid-column: 2 / -1;
@@ -35,13 +36,22 @@ const StyledPlatforms = styled.div`
 `;
 
 function Platforms() {
+  const [showAll, setShowAll] = useState();
+
+  const filteredPlatforms = platforms.slice(
+    0,
+    (showAll && platforms.length) || 4
+  );
+
   return (
     <StyledPlatforms>
       <div className="heading-ph">
         <span>Top Platforms</span>
-        <span className="see-all">See All</span>
+        <span className="see-all" onClick={() => setShowAll((prev) => !prev)}>
+          {showAll ? "See Less" : "See All"}
+        </span>
       </div>
-      {platforms.map((platform) => (
+      {filteredPlatforms.map((platform) => (
         <Platform platform={platform} key={platform.id} />
       ))}
     </StyledPlatforms>
