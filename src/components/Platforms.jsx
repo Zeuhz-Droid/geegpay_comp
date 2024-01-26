@@ -11,6 +11,23 @@ const StyledPlatforms = styled.div`
   border-radius: var(--border-radius-lg);
   padding: 1.5rem;
 
+  .heading-ph {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+  }
+
+  .see-all {
+    cursor: pointer;
+    font-weight: 400;
+    color: var(--color-primary);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   @media (max-width: 1200px) {
     grid-column: 1 / -1;
   }
@@ -19,6 +36,10 @@ const StyledPlatforms = styled.div`
 function Platforms() {
   return (
     <StyledPlatforms>
+      <div className="heading-ph">
+        <span>Top Platforms</span>
+        <span className="see-all">See All</span>
+      </div>
       {platforms.map((platform) => (
         <Platform platform={platform} key={platform.id} />
       ))}

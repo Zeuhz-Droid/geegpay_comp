@@ -18,11 +18,25 @@ const StyledTracker = styled.span`
     border-radius: var(--border-radius-lg);
     background-color: ${({ color }) => color};
     width: ${({ percentage }) => `${percentage}%` || "0%"};
+    animation: ${({ active }) =>
+      active && "lengthen var(--platform-timing) linear"};
+  }
+
+  @keyframes lengthen {
+    0% {
+      width: 0%;
+    }
   }
 `;
 
-function Tracker({ percentage, color }) {
-  return <StyledTracker color={color} percentage={percentage}></StyledTracker>;
+function Tracker({ percentage, color, active }) {
+  return (
+    <StyledTracker
+      color={color}
+      percentage={percentage}
+      active={active}
+    ></StyledTracker>
+  );
 }
 
 export default Tracker;

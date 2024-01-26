@@ -33,17 +33,7 @@ const StyledHeader = styled(CommonRow)`
 `;
 
 const StyledRow = styled(CommonRow)`
-  /* white-space: nowrap;
-  word-break: keep-all; */
   padding: 1rem 2rem;
-
-  &:not(:last-child) {
-    border-bottom: 1px solid var(--color-grey-100);
-  }
-
-  @media (max-width: 900px) {
-    width: 118%;
-  }
 `;
 
 const StyledBody = styled.section`

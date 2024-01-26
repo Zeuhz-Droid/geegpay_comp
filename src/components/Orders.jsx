@@ -14,11 +14,13 @@ const StyledOrders = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    font-weight: 600;
     padding: 1.5rem;
   }
 
   .see-all {
     cursor: pointer;
+    font-weight: 400;
     color: var(--color-primary);
 
     &:hover {

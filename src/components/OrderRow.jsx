@@ -7,6 +7,10 @@ const StyledOrder = styled.div`
 
   &:not(:last-child) {
     border-bottom: 1px solid var(--color-grey-200);
+
+    @media (max-width: 900px) {
+      width: 118%;
+    }
   }
 
   .merchant {
