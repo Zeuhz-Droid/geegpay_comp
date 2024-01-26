@@ -10,6 +10,7 @@ const StyledPlatforms = styled.div`
   background-color: var(--color-white);
   border-radius: var(--border-radius-lg);
   padding: 1.5rem;
+  height: max-content;
 
   .heading-ph {
     display: flex;

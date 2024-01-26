@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Table from "./Table";
 import { orders } from "../data/orders";
 import OrderRow from "./OrderRow";
+import { useState } from "react";
 
 const StyledOrders = styled.div`
   grid-row: 2 / -1;
@@ -36,11 +37,17 @@ const StyledOrders = styled.div`
 `;
 
 function Orders() {
+  const [showAll, setShowAll] = useState();
+
+  const filteredOrders = orders.slice(0, (showAll && orders.length) || 5);
+
   return (
     <StyledOrders>
       <div className="heading-ph">
         <span>Last Orders</span>
-        <span className="see-all">See All</span>
+        <span className="see-all" onClick={() => setShowAll((prev) => !prev)}>
+          {showAll ? "See Less" : "See All"}
+        </span>
       </div>
       <Table columns="minmax(16rem, 2fr) minmax(10rem, 1fr) minmax(8rem, 1fr) minmax(6rem, 1fr) minmax(8rem, 1fr)">
         <Table.Header>
@@ -50,9 +57,9 @@ function Orders() {
           <div>Status</div>
           <div>Invoice</div>
         </Table.Header>
-
+        {console.log(filteredOrders)}
         <Table.Body
-          data={orders}
+          data={filteredOrders}
           render={(order) => <OrderRow order={order} key={order.id} />}
         />
       </Table>
