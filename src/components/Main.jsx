@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import BarChart from "./BarChart";
+import Chart from "./Chart";
 import Orders from "./Orders";
 import Statistics from "./Statistics";
+import Platforms from "./Platforms";
 
 const StyledMain = styled.div`
   grid-column: 2 / -1;
@@ -11,15 +12,16 @@ const StyledMain = styled.div`
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   grid-template-rows: auto auto;
-  gap: 1.5rem;
+  gap: 2rem;
 `;
 
 function Main() {
   return (
     <StyledMain>
-      <BarChart />
+      <Chart />
       <Orders />
       <Statistics />
+      <Platforms />
     </StyledMain>
   );
 }
