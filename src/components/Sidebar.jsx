@@ -25,6 +25,19 @@ const StyledSidebar = styled.div`
   align-items: center;
   height: 100vh;
   border-right: 1px solid var(--color-grey-200);
+
+  @media (max-width: 900px) {
+    background-color: var(--color-white);
+    overflow-x: scroll;
+    height: 10rem;
+    flex-direction: row;
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+
+    .logo {
+      display: none;
+    }
+  }
 `;
 
 const Column = styled.div`
@@ -35,6 +48,10 @@ const Column = styled.div`
 
   .logo {
     padding: 1rem;
+  }
+
+  @media (max-width: 900px) {
+    flex-direction: row;
   }
 `;
 
@@ -50,22 +67,39 @@ const Img = styled.img`
   }
 `;
 
+const MobileLogo = styled.span`
+  display: none;
+
+  @media (max-width: 900px) {
+    display: block;
+    position: absolute;
+    top: 3rem;
+    left: 3rem;
+    width: 5rem;
+  }
+`;
+
 function Sidebar() {
   return (
-    <StyledSidebar>
-      <Column>
-        <img className="logo" src={logo} alt="main-logo" />
-        {svgsMain.map((svg, index) => (
-          <Img key={index} src={svg} alt={index} />
-        ))}
-      </Column>
-      <Theme />
-      <Column>
-        {svgsOthers.map((svg, index) => (
-          <Img key={index} src={svg} alt={index} />
-        ))}
-      </Column>
-    </StyledSidebar>
+    <>
+      <MobileLogo>
+        <img src={logo} alt="main-logo" />
+      </MobileLogo>
+      <StyledSidebar>
+        <Column>
+          <img className="logo" src={logo} alt="main-logo" />
+          {svgsMain.map((svg, index) => (
+            <Img key={index} src={svg} alt={index} />
+          ))}
+        </Column>
+        <Theme />
+        <Column>
+          {svgsOthers.map((svg, index) => (
+            <Img key={index} src={svg} alt={index} />
+          ))}
+        </Column>
+      </StyledSidebar>
+    </>
   );
 }
 

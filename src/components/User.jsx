@@ -27,6 +27,22 @@ const StyledUser = styled.div`
     font-weight: 400;
     color: var(--color-grey-400);
   }
+
+  @media (max-width: 900px) {
+    gap: 0.5rem;
+    & > img {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+
+    .user-name {
+      font-size: 1.3rem;
+    }
+
+    .user-mail {
+      font-size: 1.2rem;
+    }
+  }
 `;
 
 function User() {

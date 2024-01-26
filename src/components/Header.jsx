@@ -15,6 +15,7 @@ const StyledHeader = styled.div`
   color: var(--color-grey-800);
 
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--color-grey-200);
@@ -23,6 +24,20 @@ const StyledHeader = styled.div`
 
   .heading {
     font-size: 2rem;
+  }
+
+  @media (max-width: 1200px) {
+    gap: 1rem;
+  }
+
+  @media (max-width: 900px) {
+    margin-top: 9rem;
+    width: 100%;
+    margin-inline: auto;
+
+    .heading {
+      display: none;
+    }
   }
 `;
 
@@ -51,6 +66,14 @@ const Search = styled.div`
       color: var(--color-grey-300);
     }
   }
+
+  @media (max-width: 900px) {
+    width: 100%;
+
+    & > input {
+      width: 100%;
+    }
+  }
 `;
 
 const Notification = styled.span`
@@ -65,11 +88,26 @@ const Notification = styled.span`
   & > svg {
     font-size: 2rem;
   }
+
+  @media (max-width: 900px) {
+    width: 3rem;
+    height: 3rem;
+    margin-right: auto;
+    & > svg {
+      font-size: 1.8rem;
+    }
+  }
 `;
 
 const Date = styled.div`
   & > svg {
     margin-right: 1rem;
+  }
+
+  @media (max-width: 900px) {
+    position: absolute;
+    top: 4.5rem;
+    right: 12rem;
   }
 `;
 

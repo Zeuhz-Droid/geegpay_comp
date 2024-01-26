@@ -3,7 +3,7 @@ import BarChart from "./BarChart";
 import { useState } from "react";
 
 const StyledChart = styled.div`
-  width: 100%;
+  max-width: 100%;
   height: 100%;
   border-radius: var(--border-radius-lg);
   background-color: var(--color-white);

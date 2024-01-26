@@ -39,6 +39,12 @@ const StyledOrder = styled.div`
       margin-right: 1rem;
     }
   }
+
+  @media (max-width: 900px) {
+    .merchant {
+      gap: 1rem;
+    }
+  }
 `;
 
 const Status = styled.div`

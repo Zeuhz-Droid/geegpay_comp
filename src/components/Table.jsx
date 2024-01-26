@@ -4,7 +4,11 @@ import styled from "styled-components";
 const StyledTable = styled.div`
   font-size: 1.4rem;
   border-radius: 7px;
-  overflow: hidden;
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const CommonRow = styled.div`
@@ -22,13 +26,23 @@ const StyledHeader = styled(CommonRow)`
   letter-spacing: 0.4px;
   font-weight: 600;
   color: var(--color-grey-600);
+
+  @media (max-width: 900px) {
+    width: 118%;
+  }
 `;
 
 const StyledRow = styled(CommonRow)`
+  /* white-space: nowrap;
+  word-break: keep-all; */
   padding: 1rem 2rem;
 
   &:not(:last-child) {
     border-bottom: 1px solid var(--color-grey-100);
+  }
+
+  @media (max-width: 900px) {
+    width: 118%;
   }
 `;
 

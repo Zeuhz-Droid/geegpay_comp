@@ -7,6 +7,10 @@ const StyledLayout = styled.div`
   display: grid;
   grid-template-columns: auto 2fr 1fr;
   grid-template-rows: auto 1fr 1fr;
+
+  @media (max-width: 900px) {
+    grid-template-rows: auto auto auto;
+  }
 `;
 
 function AppLayout() {

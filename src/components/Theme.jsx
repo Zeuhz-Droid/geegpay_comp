@@ -11,6 +11,13 @@ const StyledTheme = styled.div`
   margin-top: 2rem;
   padding: 0.5rem;
   gap: 1.5rem;
+
+  @media (max-width: 900px) {
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+    flex-direction: row;
+  }
 `;
 
 const Icon = styled.div`

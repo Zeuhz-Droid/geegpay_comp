@@ -13,6 +13,16 @@ const StyledMain = styled.div`
   grid-template-columns: 1.5fr 1fr;
   grid-template-rows: auto auto;
   gap: 2rem;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  @media (max-width: 900px) {
+    grid-column: 1 / -1;
+    grid-row: 3 / -1;
+  }
 `;
 
 function Main() {

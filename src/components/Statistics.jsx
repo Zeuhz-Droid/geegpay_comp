@@ -10,6 +10,11 @@ const StyledStatistics = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 2rem;
+
+  @media (max-width: 1200px) {
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+  }
 `;
 
 function Statistics() {

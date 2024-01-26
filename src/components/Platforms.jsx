@@ -10,6 +10,10 @@ const StyledPlatforms = styled.div`
   background-color: var(--color-white);
   border-radius: var(--border-radius-lg);
   padding: 1.5rem;
+
+  @media (max-width: 1200px) {
+    grid-column: 1 / -1;
+  }
 `;
 
 function Platforms() {
