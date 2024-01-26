@@ -44,6 +44,7 @@ const Search = styled.div`
     padding: 1rem 4rem;
     border: 1px solid var(--color-grey-200);
     border-radius: var(--border-radius-4xl);
+    background-color: var(--color-white);
 
     &::-webkit-input-placeholder {
       font-family: inherit;
