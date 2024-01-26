@@ -5,7 +5,7 @@ import smallGreenGraph from "../assets/svgs/small-green-graph.svg";
 const StyledStatistic = styled.div`
   display: grid;
   gap: 0.5rem;
-  padding: 1rem;
+  padding: 1.5rem;
   font-weight: 600;
   background-color: var(--color-white);
   border-radius: var(--border-radius-lg);
@@ -94,6 +94,10 @@ const StyledStatistic = styled.div`
         box-shadow: 0 0 10px -2px ${({ color }) => color};
       }
     }
+  }
+
+  @media (max-width: 900px) {
+    gap: 1rem;
   }
 `;
 

@@ -79,7 +79,7 @@ function BarChart() {
           },
         },
         responsive: true,
-        maintainAspectRatio: true,
+        // maintainAspectRatio: false,
         plugins: {
           legend: {
             display: false,
@@ -110,7 +110,7 @@ function BarChart() {
   }, []);
   return (
     <>
-      <canvas ref={chartRef} />
+      <canvas ref={chartRef} style={{ height: "120px" }} />
     </>
   );
 }

@@ -5,6 +5,7 @@ import OrderRow from "./OrderRow";
 
 const StyledOrders = styled.div`
   grid-row: 2 / -1;
+  height: max-content;
 
   background-color: var(--color-white);
   border-radius: var(--border-radius-lg);
