@@ -1,6 +1,5 @@
 import Chart from "chart.js/auto";
 import { useEffect, useRef } from "react";
-// import chart from "../assets/imgs/table.png";
 
 function BarChart() {
   const chartRef = useRef(null);
@@ -34,7 +33,7 @@ function BarChart() {
           {
             label: null,
             data: [
-              7000, 17000, 3000, 27000, 8000, 45000, 9000, 21000, 31500, 4000,
+              7500, 17000, 6000, 27000, 8000, 45000, 9000, 21000, 31000, 7000,
               30000, 26000, 50000,
             ],
             backgroundColor: (context) => {
@@ -52,7 +51,7 @@ function BarChart() {
               }
               return barChartColor;
             },
-            borderRadius: 30,
+            borderRadius: 100,
           },
         ],
       },
@@ -71,6 +70,12 @@ function BarChart() {
               color: "#f4c70048",
               borderDash: [4, 2],
             },
+            ticks: {
+              callback: (value) => `$${value.toLocaleString()}`,
+              stepSize: 10000,
+              max: 50000,
+              min: 5000,
+            },
           },
         },
         responsive: true,
@@ -78,6 +83,20 @@ function BarChart() {
         plugins: {
           legend: {
             display: false,
+          },
+          tooltip: {
+            yAlign: "bottom",
+            caretSize: 4,
+            callbacks: {
+              label: (context) => {
+                const value = context.parsed.y || 0;
+                return `$${Math.floor(value).toLocaleString()}`;
+              },
+              title: () => "",
+            },
+          },
+          onHover: (event, chartElement) => {
+            event.target.style.cursor = chartElement[0] ? "pointer" : "default";
           },
         },
       },
