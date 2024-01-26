@@ -10,6 +10,7 @@ import profileUser from "../assets/svgs/profile-user.svg";
 import setting from "../assets/svgs/setting.svg";
 import logout from "../assets/svgs/logout.svg";
 import arrowRight from "../assets/svgs/arrow-right.svg";
+import Theme from "./Theme";
 
 const svgsMain = [category, trendUp, box, discount, info, profileUser];
 
@@ -58,7 +59,7 @@ function Sidebar() {
           <Img key={index} src={svg} alt={index} />
         ))}
       </Column>
-
+      <Theme />
       <Column>
         {svgsOthers.map((svg, index) => (
           <Img key={index} src={svg} alt={index} />
