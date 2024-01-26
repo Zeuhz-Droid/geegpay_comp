@@ -29,6 +29,7 @@
   --longer-timing: 800ms;
 
   --border-radius-sm: 4px;
+  --border-radius-md: 8px;
   --border-radius-lg: 14px;
   --border-radius-2xl: 20px;
   --border-radius-4xl: 40px;
@@ -149,8 +150,8 @@ h6 {
   }
 }
 
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
   html {
     font-size: 51%;
   }
-}
+} */

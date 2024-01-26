@@ -79,13 +79,14 @@ function BarChart() {
           },
         },
         responsive: true,
-        // maintainAspectRatio: false,
+        maintainAspectRatio: true,
         plugins: {
           legend: {
             display: false,
           },
           tooltip: {
             yAlign: "bottom",
+            titleColor: "none",
             caretSize: 4,
             callbacks: {
               label: (context) => {

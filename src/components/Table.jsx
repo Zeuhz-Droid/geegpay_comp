@@ -28,7 +28,7 @@ const StyledHeader = styled(CommonRow)`
   color: var(--color-grey-600);
 
   @media (max-width: 900px) {
-    width: 118%;
+    width: 138%;
   }
 `;
 
