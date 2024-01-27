@@ -14,6 +14,16 @@ const StyledLinkBoard = styled.div`
   padding: 2rem;
   position: relative;
 
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  align-items: flex-start;
+  gap: 4rem;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, auto);
+    gap: 1.5rem;
+  }
+
   .pointer {
     position: absolute;
     top: 50%;
@@ -28,11 +38,6 @@ const StyledLinkBoard = styled.div`
     padding-bottom: 0.2rem;
     border-bottom: 1.5px solid var(--color-yellow);
   }
-
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  align-items: flex-start;
-  gap: 4rem;
 
   .indent_left {
     margin-left: 2rem;
