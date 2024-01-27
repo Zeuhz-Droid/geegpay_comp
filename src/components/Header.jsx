@@ -103,12 +103,6 @@ const Date = styled.div`
   & > svg {
     margin-right: 1rem;
   }
-
-  @media (max-width: 900px) {
-    /* position: absolute;
-    top: 4.5rem;
-    right: 12rem; */
-  }
 `;
 
 function Header() {
