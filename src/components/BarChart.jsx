@@ -1,9 +1,107 @@
 import Chart from "chart.js/auto";
 import { useEffect, useRef } from "react";
 
-function BarChart() {
+function BarChart({ period }) {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
+
+  let labels, data, maxIndex;
+
+  const getRandomNumber = (min, max) =>
+    Math.floor(Math.random() * (max - min + 1)) + min;
+
+  function getNumbers(length) {
+    const numbersArray = Array.from(
+      { length },
+      () => getRandomNumber(5, 50) * 1000
+    );
+    const maxValue = Math.max(...numbersArray);
+    maxIndex = numbersArray.indexOf(maxValue);
+    return numbersArray;
+  }
+
+  if (period === "daily") {
+    labels = [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thur",
+      "Fri",
+      "Sat",
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thur",
+      "Fri",
+      "Sat",
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thur",
+      "Fri",
+      "Sat",
+      "Sun",
+    ];
+    data = getNumbers(21);
+  }
+  if (period === "weekly") {
+    labels = [
+      "week1",
+      "week2",
+      "week3",
+      "week4",
+      "week5",
+      "week6",
+      "week7",
+      "week8",
+      "week9",
+      "week9",
+      "week10",
+      "week11",
+      "week13",
+      "week14",
+      "week15",
+      "week16",
+    ];
+    data = getNumbers(16);
+  }
+  if (period === "monthly") {
+    labels = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "April",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sept",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    data = [
+      7500, 17000, 6000, 27000, 8000, 45000, 9000, 21000, 31000, 7000, 30000,
+      26000, 50000,
+    ];
+  }
+
+  // Custom animation plugin
+  const dancingAnimation = {
+    id: "dancingAnimation",
+    beforeDraw(chart) {
+      const { ctx, chartArea } = chart;
+      const animationProgress =
+        chart.options.animation.currentStep / chart.options.animation.numSteps;
+
+      const offset = chartArea.width * animationProgress;
+      ctx.translate(offset, 0);
+    },
+  };
+
+  Chart.register(dancingAnimation);
 
   useEffect(() => {
     if (chartInstance.current) {
@@ -15,30 +113,15 @@ function BarChart() {
     chartInstance.current = new Chart(myChartRef, {
       type: "bar",
       data: {
-        labels: [
-          "Jan",
-          "Feb",
-          "Mar",
-          "April",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sept",
-          "Oct",
-          "Nov",
-          "Dec",
-        ],
+        labels: labels,
         datasets: [
           {
             label: null,
-            data: [
-              7500, 17000, 6000, 27000, 8000, 45000, 9000, 21000, 31000, 7000,
-              30000, 26000, 50000,
-            ],
+            data: data,
+            hoverBackgroundColor: ["#66c87b6f"],
             backgroundColor: (context) => {
               const index = context.dataIndex;
-              if (index === 5) {
+              if (index === (maxIndex || 5)) {
                 const gradient = context.chart.ctx.createLinearGradient(
                   0,
                   0,
@@ -56,6 +139,11 @@ function BarChart() {
         ],
       },
       options: {
+        animation: {
+          duration: 1000,
+          easing: "easeInOutQuart",
+        },
+        dancingAnimation: {},
         scales: {
           x: {
             beginAtZero: true,
@@ -79,7 +167,8 @@ function BarChart() {
           },
         },
         responsive: true,
-        maintainAspectRatio: true,
+        aspectRatio: 2,
+        maintainAspectRatio: false,
         plugins: {
           legend: {
             display: false,
@@ -96,9 +185,6 @@ function BarChart() {
               title: () => "",
             },
           },
-          onHover: (event, chartElement) => {
-            event.target.style.cursor = chartElement[0] ? "pointer" : "default";
-          },
         },
       },
     });
@@ -108,10 +194,10 @@ function BarChart() {
         chartInstance.current.destroy();
       }
     };
-  }, []);
+  }, [data, labels, maxIndex]);
   return (
     <>
-      <canvas ref={chartRef} style={{ height: "120px" }} />
+      <canvas ref={chartRef} />
     </>
   );
 }

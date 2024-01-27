@@ -4,10 +4,31 @@ import { useState } from "react";
 
 const StyledChart = styled.div`
   max-width: 100%;
-  height: 100%;
   border-radius: var(--border-radius-lg);
   background-color: var(--color-white);
   padding: 1.5rem;
+  overflow: hidden;
+
+  .barchart-container {
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .barchart {
+    position: relative;
+    height: 40vh;
+    width: 100%;
+  }
+
+  @media (max-width: 900px) {
+    .barchart {
+      width: 60rem;
+      height: 35vh;
+    }
+  }
 
   .heading-container {
     display: flex;
@@ -38,7 +59,7 @@ const StyledChart = styled.div`
 `;
 
 function Chart() {
-  const [value, setValue] = useState();
+  const [value, setValue] = useState("monthly");
 
   return (
     <StyledChart>
@@ -51,14 +72,17 @@ function Chart() {
             value={value}
             onChange={(e) => setValue(e.target.value)}
           >
-            <option>Daily</option>
-            <option>Weekly</option>
-            <option>Monthly</option>
-            <option>Annually</option>
+            <option value={"daily"}>Daily</option>
+            <option value={"weekly"}>Weekly</option>
+            <option value={"monthly"}>Monthly</option>
           </select>
         </div>
       </div>
-      <BarChart />
+      <div className="barchart-container">
+        <div className="barchart">
+          <BarChart period={value} />
+        </div>
+      </div>
     </StyledChart>
   );
 }
