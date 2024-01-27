@@ -152,6 +152,20 @@ h6 {
   }
 }
 
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
 /* @media (max-width: 900px) {
   html {
     font-size: 51%;
