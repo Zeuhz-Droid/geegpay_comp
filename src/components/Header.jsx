@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {
   HiOutlineBell,
-  HiOutlineCalendar,
+  HiOutlineCalendarDays,
   HiOutlineMagnifyingGlass,
 } from "react-icons/hi2";
 import { getCurrentDate } from "../utils/helper";
@@ -100,9 +100,9 @@ const Notification = styled.span`
 `;
 
 const Date = styled.div`
-  & > svg {
-    margin-right: 1rem;
-  }
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 `;
 
 function Header() {
@@ -116,7 +116,7 @@ function Header() {
         <input type="text" placeholder="Search" />
       </Search>
       <Date>
-        <HiOutlineCalendar />
+        <HiOutlineCalendarDays />
         <span>
           {month} {day}, {year}
         </span>

@@ -180,8 +180,8 @@ function Invoice({ order, invoice, hideInvoice }) {
         .then(() => {
           toast.success("Invoice downloaded successfully");
         })
-        .catch(() => {
-          toast.error("Failed to download invoice");
+        .catch((err) => {
+          toast.error(err || "Failed to download invoice");
         });
     }
   };
