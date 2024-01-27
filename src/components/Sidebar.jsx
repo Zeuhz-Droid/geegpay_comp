@@ -99,13 +99,28 @@ const LinkContainer = styled.div`
     position: absolute;
     z-index: 1000;
     top: -150%;
-    left: 100%;
-    opacity: 0;
-    visibility: hidden;
+    left: calc(100% + 8px);
     transition: opacity var(--link-timing) linear;
   }
 
-  &:hover .linkboard {
+  .pointer {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    border-bottom: var(--arrow-size) solid transparent;
+    border-right: var(--arrow-size) solid var(--color-grey-200);
+    border-top: var(--arrow-size) solid transparent;
+  }
+
+  .linkboard,
+  .pointer {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &:hover .linkboard,
+  &:hover .pointer {
     opacity: 1;
     visibility: visible;
   }
@@ -132,6 +147,7 @@ function Sidebar() {
               <div className="linkboard">
                 <LinkBoard link={link} />
               </div>
+              <div className="pointer"></div>
             </LinkContainer>
           ))}
         </Column>

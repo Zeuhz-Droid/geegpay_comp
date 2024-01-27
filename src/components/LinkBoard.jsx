@@ -25,16 +25,6 @@ const StyledLinkBoard = styled.div`
     gap: 1.5rem;
   }
 
-  .pointer {
-    position: absolute;
-    top: 50%;
-    left: -8px;
-    transform: translateY(-50%);
-    border-bottom: var(--arrow-size) solid transparent;
-    border-right: var(--arrow-size) solid var(--color-grey-200);
-    border-top: var(--arrow-size) solid transparent;
-  }
-
   .custom {
     padding-bottom: 0.2rem;
     border-bottom: 1.5px solid var(--color-yellow);
@@ -145,7 +135,6 @@ function LinkBoard({ link }) {
           ))}
         </LinkGroup>
       </StyledBox>
-      <div className="pointer"></div>
     </StyledLinkBoard>
   );
 }
