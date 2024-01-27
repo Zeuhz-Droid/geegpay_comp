@@ -11,6 +11,8 @@ import setting from "../assets/svgs/setting.svg";
 import logout from "../assets/svgs/logout.svg";
 import arrowRight from "../assets/svgs/arrow-right.svg";
 import Theme from "./Theme";
+import { HiOutlineBars3, HiOutlineXMark } from "react-icons/hi2";
+import { useState } from "react";
 
 const svgsMain = [category, trendUp, box, discount, info, profileUser];
 
@@ -26,13 +28,20 @@ const StyledSidebar = styled.div`
   height: 100vh;
   border-right: 1px solid var(--color-grey-200);
 
+  .logo {
+    padding: 1rem;
+  }
+
   @media (max-width: 900px) {
-    background-color: var(--color-white);
-    overflow-x: scroll;
-    height: 10rem;
-    flex-direction: row;
-    grid-column: 1 / -1;
-    grid-row: 2 / 3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15%;
+    padding-top: 5rem;
+    z-index: 10;
+    background-color: var(--color-grey-50);
+    transition: transform var(--general-timing) linear;
+    transform: ${({ menu }) => (menu ? "translateX(0)" : "translateX(-100%)")};
 
     .logo {
       display: none;
@@ -45,14 +54,6 @@ const Column = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
-
-  .logo {
-    padding: 1rem;
-  }
-
-  @media (max-width: 900px) {
-    flex-direction: row;
-  }
 `;
 
 const Img = styled.img`
@@ -71,21 +72,42 @@ const MobileLogo = styled.span`
   display: none;
 
   @media (max-width: 900px) {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--color-grey-600);
     position: absolute;
+    padding-inline: 5%;
+    width: 100%;
     top: 3rem;
-    left: 3rem;
-    width: 5rem;
+
+    & > img {
+      left: 3rem;
+      width: 5rem;
+    }
+
+    & > svg {
+      margin-left: auto;
+
+      width: 3.5rem;
+      height: 3.5rem;
+    }
   }
 `;
 
 function Sidebar() {
+  const [menu, setMenu] = useState();
   return (
     <>
       <MobileLogo>
         <img src={logo} alt="main-logo" />
+        {menu ? (
+          <HiOutlineXMark onClick={() => setMenu(false)} />
+        ) : (
+          <HiOutlineBars3 onClick={() => setMenu(true)} />
+        )}
       </MobileLogo>
-      <StyledSidebar>
+      <StyledSidebar menu={menu}>
         <Column>
           <img className="logo" src={logo} alt="main-logo" />
           {svgsMain.map((svg, index) => (

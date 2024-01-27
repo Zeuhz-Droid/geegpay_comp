@@ -105,9 +105,9 @@ const Date = styled.div`
   }
 
   @media (max-width: 900px) {
-    position: absolute;
+    /* position: absolute;
     top: 4.5rem;
-    right: 12rem;
+    right: 12rem; */
   }
 `;
 
