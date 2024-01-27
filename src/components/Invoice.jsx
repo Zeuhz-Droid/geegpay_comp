@@ -4,6 +4,7 @@ import jsPDF from "jspdf";
 import Button from "./Button";
 import { useRef } from "react";
 import { useOutsideClick } from "../hooks/useOutsideClick";
+import toast from "react-hot-toast";
 
 const StyledInvoice = styled.div`
   position: fixed;
@@ -169,12 +170,19 @@ function Invoice({ order, invoice, hideInvoice }) {
 
   const downloadInvoice = () => {
     if (invoiceRef.current) {
-      html2canvas(invoiceRef.current).then((canvas) => {
-        const imageData = canvas.toDataURL("image/jpeg");
-        const pdf = new jsPDF();
-        pdf.addImage(imageData, "JPEG", 0, 0, 210, 297); //
-        pdf.save("invoice.pdf");
-      });
+      html2canvas(invoiceRef.current)
+        .then((canvas) => {
+          const imageData = canvas.toDataURL("image/jpeg");
+          const pdf = new jsPDF();
+          pdf.addImage(imageData, "JPEG", 0, 0, 210, 297); //
+          pdf.save("invoice.pdf");
+        })
+        .then(() => {
+          toast.success("Invoice downloaded successfully");
+        })
+        .catch(() => {
+          toast.error("Failed to download invoice");
+        });
     }
   };
 
