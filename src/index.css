@@ -25,10 +25,13 @@
   --color-grey-800: #262626;
   --color-grey-900: #171717;
 
+  --link-timing: 150ms;
   --general-timing: 200ms;
   --statistics-timing: 400ms;
   --platform-timing: 500ms;
   --longer-timing: 800ms;
+
+  --arrow-size: 10px;
 
   --border-radius-sm: 4px;
   --border-radius-md: 8px;
@@ -40,9 +43,9 @@
 
 .dark {
   --color-primary: #34caa5;
-  --color-secondary: #0d062d;
+  --color-secondary: #a5a0be;
   --color-purple: #6160dc;
-  --color-blue: #54c5eb;
+  --color-blue: #226bd1;
   --color-yellow: #ffb74a;
   --color-red: #ff4a55;
   --color-success: #66c87b;

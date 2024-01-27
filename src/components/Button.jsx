@@ -5,8 +5,9 @@ const Button = styled.button`
   border: none;
   padding: ${({ y }) => (y ? `${y}rem` : "1rem")};
   padding-inline: ${({ x }) => (x ? `${x}rem` : "2rem")};
-  font-size: 1.8rem;
+  font-size: ${({ size }) => (size ? `${size}rem` : "1.8rem")};
   font-weight: 600;
+  width: max-content;
   align-self: center;
   color: ${({ color }) => (color ? color : "var(--color-grey-900)")};
   border-radius: var(--border-radius-md);

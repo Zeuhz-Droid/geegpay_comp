@@ -1,11 +1,5 @@
 import styled from "styled-components";
 import logo from "../assets/svgs/logo-geegpay.svg";
-import category from "../assets/svgs/category.svg";
-import trendUp from "../assets/svgs/trend-up.svg";
-import box from "../assets/svgs/box.svg";
-import discount from "../assets/svgs/discount.svg";
-import info from "../assets/svgs/info-circle.svg";
-import profileUser from "../assets/svgs/profile-user.svg";
 
 import setting from "../assets/svgs/setting.svg";
 import logout from "../assets/svgs/logout.svg";
@@ -13,8 +7,8 @@ import arrowRight from "../assets/svgs/arrow-right.svg";
 import Theme from "./Theme";
 import { HiOutlineBars3, HiOutlineXMark } from "react-icons/hi2";
 import { useState } from "react";
-
-const svgsMain = [category, trendUp, box, discount, info, profileUser];
+import LinkBoard from "./LinkBoard";
+import { links } from "../data/links";
 
 const svgsOthers = [arrowRight, setting, logout];
 
@@ -79,7 +73,7 @@ const MobileLogo = styled.span`
     position: absolute;
     padding-inline: 5%;
     width: 100%;
-    top: 3rem;
+    top: 2rem;
 
     & > img {
       left: 3rem;
@@ -92,6 +86,25 @@ const MobileLogo = styled.span`
       width: 3.5rem;
       height: 3.5rem;
     }
+  }
+`;
+
+const LinkContainer = styled.div`
+  position: relative;
+
+  .linkboard {
+    position: absolute;
+    z-index: 1000;
+    top: -150%;
+    left: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--link-timing) linear;
+  }
+
+  &:hover .linkboard {
+    opacity: 1;
+    visibility: visible;
   }
 `;
 
@@ -110,8 +123,13 @@ function Sidebar() {
       <StyledSidebar menu={menu}>
         <Column>
           <img className="logo" src={logo} alt="main-logo" />
-          {svgsMain.map((svg, index) => (
-            <Img key={index} src={svg} alt={index} />
+          {links.map((link, index) => (
+            <LinkContainer key={index}>
+              <Img className="icon" src={link.linkIcon} alt={index} />
+              <div className="linkboard">
+                <LinkBoard link={link} />
+              </div>
+            </LinkContainer>
           ))}
         </Column>
         <Theme />

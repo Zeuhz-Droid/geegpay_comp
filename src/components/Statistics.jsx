@@ -12,9 +12,12 @@ const StyledStatistics = styled.div`
   gap: 2rem;
 
   @media (max-width: 1200px) {
-    grid-template-columns: 1fr;
     grid-column: 1 / -1;
     grid-row: 2 / 3;
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
   }
 `;
 
