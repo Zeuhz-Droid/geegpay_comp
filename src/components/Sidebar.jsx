@@ -27,13 +27,13 @@ const StyledSidebar = styled.div`
   }
 
   @media (max-width: 900px) {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 15%;
-    padding-top: 5rem;
-    z-index: 10;
-    background-color: var(--color-grey-50);
+    padding-top: 10rem;
+    z-index: 700;
+    background-color: var(--color-grey-100);
     transition: transform var(--general-timing) linear;
     transform: ${({ menu }) => (menu ? "translateX(0)" : "translateX(-100%)")};
 
@@ -71,10 +71,12 @@ const MobileLogo = styled.span`
     align-items: center;
     justify-content: space-between;
     color: var(--color-grey-600);
-    position: absolute;
+    background-color: var(--color-grey-100);
     padding-inline: 5%;
+    height: 9rem;
     width: 100%;
-    top: 2rem;
+    position: fixed;
+    z-index: 500;
 
     & > img {
       left: 3rem;
