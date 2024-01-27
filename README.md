@@ -1,8 +1,11 @@
-# React + Vite
+# Geegpay challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Dashboard Figma Design
 
-Currently, two official plugins are available:
+[Figma desgin](https://www.figma.com/file/IvIZCBKMfmY3Qty0Gqx6S8/Analytics-Dashboard?type=design&node-id=1609-1012&mode=design&t=qiMhp0IUthD7DHmD-0)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Hosted Solution
+
+[Site](https://geegpay-zeuhz.netlify.app/)
+
+## Acknowlegdment
