@@ -106,7 +106,7 @@ const LinkContainer = styled.div`
   .pointer {
     position: absolute;
     top: 50%;
-    left: 100%;
+    left: 102%;
     transform: translateY(-50%);
     border-bottom: var(--arrow-size) solid transparent;
     border-right: var(--arrow-size) solid var(--color-grey-200);
