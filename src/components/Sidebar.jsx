@@ -98,7 +98,7 @@ const LinkContainer = styled.div`
   .linkboard {
     position: absolute;
     z-index: 1000;
-    top: -150%;
+    top: -70%;
     left: calc(100% + 8px);
     transition: opacity var(--link-timing) linear;
   }

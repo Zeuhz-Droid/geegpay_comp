@@ -26,7 +26,8 @@ const StyledLinkBoard = styled.div`
   }
 
   .custom {
-    padding-bottom: 0.2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
     border-bottom: 1.5px solid var(--color-yellow);
   }
 
