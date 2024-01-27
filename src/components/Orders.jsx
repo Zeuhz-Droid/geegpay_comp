@@ -17,6 +17,7 @@ const StyledOrders = styled.div`
     align-items: center;
     justify-content: space-between;
     font-weight: 600;
+    font-size: 1.8rem;
     padding: 1.5rem;
   }
 

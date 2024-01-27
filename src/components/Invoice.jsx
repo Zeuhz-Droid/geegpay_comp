@@ -82,7 +82,6 @@ const StyledInvoice = styled.div`
     border-top-right-radius: var(--border-radius-sm);
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-    overflow: hidden;
 
     display: grid;
     place-content: center;

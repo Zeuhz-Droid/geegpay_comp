@@ -64,7 +64,7 @@ const Dropdown = styled.div`
   display: grid;
   width: 100%;
   color: var(--color-grey-500);
-  background-color: var(--color-grey-50);
+  background-color: var(--color-grey-100);
   border-bottom: 1px solid var(--color-grey-200);
   padding-inline: 1rem;
   padding-top: 3rem;
