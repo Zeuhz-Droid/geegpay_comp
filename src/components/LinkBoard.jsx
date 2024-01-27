@@ -21,6 +21,7 @@ const StyledLinkBoard = styled.div`
 
   @media (max-width: 900px) {
     grid-template-columns: repeat(2, auto);
+    padding: 1rem;
     gap: 1.5rem;
   }
 
