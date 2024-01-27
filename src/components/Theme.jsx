@@ -11,13 +11,6 @@ const StyledTheme = styled.div`
   margin-top: 2rem;
   padding: 0.5rem;
   gap: 1.5rem;
-
-  @media (max-width: 900px) {
-    /* position: absolute;
-    top: 2rem;
-    right: 3rem;
-    flex-direction: row; */
-  }
 `;
 
 const Icon = styled.div`
@@ -40,20 +33,29 @@ function Theme() {
   const [selected, setSelected] = useState("sun");
 
   useEffect(() => {
-    if (selected === "moon") {
+    const mode = localStorage.getItem("mode");
+    handleTheme(mode);
+  }, []);
+
+  function handleTheme(mode) {
+    if (mode === "moon") {
+      setSelected("moon");
+      localStorage.setItem("mode", "moon");
       document.body.classList.add("dark");
     } else {
+      setSelected("sun");
+      localStorage.setItem("mode", "sun");
       document.body.classList.remove("dark");
     }
-  }, [selected]);
+  }
 
   return (
     <StyledTheme>
-      <Icon active={selected === "sun"} onClick={() => setSelected("sun")}>
+      <Icon active={selected === "sun"} onClick={() => handleTheme("sun")}>
         <HiOutlineSun />
       </Icon>
 
-      <Icon active={selected === "moon"} onClick={() => setSelected("moon")}>
+      <Icon active={selected === "moon"} onClick={() => handleTheme("moon")}>
         <HiOutlineMoon />
       </Icon>
     </StyledTheme>
